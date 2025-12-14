@@ -100,6 +100,13 @@ The portfolio uses Inter font from Google Fonts. To change it:
    git clone https://github.com/dGreatNoob/dGreatNoob.github.io.git
    cd dGreatNoob.github.io
    ```
+   
+   Or if you're organizing repos in a `repos` folder:
+   ```bash
+   cd repos
+   git clone https://github.com/dGreatNoob/dGreatNoob.github.io.git
+   cd dGreatNoob.github.io
+   ```
 
 2. Open `index.html` in your browser or use a local server:
    ```bash
