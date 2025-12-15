@@ -107,23 +107,20 @@ const updateActiveNavLink = () => {
 
 window.addEventListener('scroll', updateActiveNavLink);
 
-// --- 4. PARCHMENT TYPEWRITER ANIMATION ---
+// --- 4. PARCHMENT TYPEWRITER ANIMATION (HERO) ---
 document.addEventListener('DOMContentLoaded', function() {
     const textElement = document.getElementById('typewriter-text');
     if (!textElement) return;
     
     const snippets = [
-        // JSON Snippet (Easter Egg - Developer Profile)
+        // JSON Snippet (Developer Profile)
         [
             "{",
             "    <span class='keyword'>\"developer\"</span>: {",
             "        <span class='keyword'>\"name\"</span>: <span class='string'>\"Belteshazzar Marquez\"</span>,",
             "        <span class='keyword'>\"handle\"</span>: <span class='string'>\"@biiieem\"</span>,",
             "        <span class='keyword'>\"title\"</span>: <span class='string'>\"Computer Engineer\"</span>,",
-            "        <span class='keyword'>\"location\"</span>: {",
-            "            <span class='keyword'>\"country\"</span>: <span class='string'>\"Philippines\"</span>,",
-            "            <span class='keyword'>\"timezone\"</span>: <span class='string'>\"PHT\"</span>",
-            "        },",
+            "        <span class='keyword'>\"location\"</span>: <span class='string'>\"Philippines\"</span>,",
             "        <span class='keyword'>\"tagline\"</span>: <span class='string'>\"always building\"</span>",
             "    },",
             "    <span class='keyword'>\"skills\"</span>: {",
@@ -133,11 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
             "    },",
             "    <span class='keyword'>\"workflow\"</span>: {",
             "        <span class='keyword'>\"ai_enabled\"</span>: <span class='keyword'>true</span>,",
-            "        <span class='keyword'>\"approach\"</span>: <span class='string'>\"AI-powered development\"</span>,",
-            "        <span class='keyword'>\"philosophy\"</span>: <span class='string'>\"Leverage AI as a force multiplier\"</span>",
+            "        <span class='keyword'>\"philosophy\"</span>: <span class='string'>\"Accelerate development, enhance quality\"</span>",
             "    },",
-            "    <span class='keyword'>\"status\"</span>: <span class='string'>\"available_for_opportunities\"</span>,",
-            "    <span class='keyword'>\"last_updated\"</span>: <span class='string'>\"2024\"</span>",
+            "    <span class='keyword'>\"status\"</span>: <span class='string'>\"Available for opportunities\"</span>",
             "}"
         ],
         // HTML Snippet (Easter Egg - About Me)
@@ -177,40 +172,45 @@ document.addEventListener('DOMContentLoaded', function() {
             "<span class='tag'>&lt;/body&gt;</span>",
             "<span class='tag'>&lt;/html&gt;</span>"
         ],
-        // Python Snippet (Easter Egg - Developer Class)
+        // Python Snippet (Developer Class)
         [
-            "<span class='keyword'>from</span> datetime <span class='keyword'>import</span> datetime",
-            "<span class='keyword'>from</span> typing <span class='keyword'>import</span> List, Dict",
+            "<span class='keyword'>import</span> datetime",
             "",
             "<span class='keyword'>class</span> <span class='function'>Developer</span>:",
             "    <span class='string'>\"\"\"Computer Engineer - always building\"\"\"</span>",
-            "    ",
-            "    <span class='keyword'>def</span> <span class='function'>__init__</span>(<span class='keyword'>self</span>, name: str, handle: str):",
+            "    <span class='keyword'>def</span> <span class='function'>__init__</span>(<span class='keyword'>self</span>, name, handle, title, location, tagline):",
             "        <span class='keyword'>self</span>.name = name",
             "        <span class='keyword'>self</span>.handle = handle",
-            "        <span class='keyword'>self</span>.title = <span class='string'>\"Computer Engineer\"</span>",
-            "        <span class='keyword'>self</span>.location = <span class='string'>\"Philippines\"</span>",
-            "        <span class='keyword'>self</span>.tagline = <span class='string'>\"always building\"</span>",
+            "        <span class='keyword'>self</span>.title = title",
+            "        <span class='keyword'>self</span>.location = location",
+            "        <span class='keyword'>self</span>.tagline = tagline",
             "        <span class='keyword'>self</span>.ai_enabled = <span class='keyword'>True</span>",
-            "        <span class='keyword'>self</span>.projects = []",
-            "    ",
-            "    <span class='keyword'>def</span> <span class='function'>build_project</span>(<span class='keyword'>self</span>, name: str, tech_stack: List[str]):",
-            "        <span class='string'>\"\"\"Create a new project using AI-powered workflow\"\"\"</span>",
-            "        project = {",
-            "            <span class='string'>\"name\"</span>: name,",
-            "            <span class='string'>\"tech\"</span>: tech_stack,",
-            "            <span class='string'>\"created_at\"</span>: datetime.now()",
+            "        <span class='keyword'>self</span>.skills = {",
+            "            <span class='string'>\"frontend\"</span>: [<span class='string'>\"React\"</span>, <span class='string'>\"Vue\"</span>, <span class='string'>\"TypeScript\"</span>],",
+            "            <span class='string'>\"backend\"</span>: [<span class='string'>\"Node.js\"</span>, <span class='string'>\"Python\"</span>, <span class='string'>\"PostgreSQL\"</span>],",
+            "            <span class='string'>\"tools\"</span>: [<span class='string'>\"Git\"</span>, <span class='string'>\"Docker\"</span>, <span class='string'>\"AWS\"</span>]",
             "        }",
-            "        <span class='keyword'>self</span>.projects.append(project)",
-            "        <span class='function'>print</span>(f<span class='string'>\"Built: {name} with {', '.join(tech_stack)}\"</span>)",
-            "    ",
-            "    <span class='keyword'>def</span> <span class='function'>leverage_ai</span>(<span class='keyword'>self</span>, task: str) -> str:",
-            "        <span class='string'>\"\"\"Use AI tools to accelerate development\"\"\"</span>",
-            "        <span class='keyword'>return</span> f<span class='string'>\"AI-enhanced: {task}\"</span>",
             "",
-            "dev = <span class='function'>Developer</span>(<span class='string'>\"Belteshazzar Marquez\"</span>, <span class='string'>\"@biiieem\"</span>)",
-            "dev.build_project(<span class='string'>\"Portfolio\"</span>, [<span class='string'>\"HTML\"</span>, <span class='string'>\"CSS\"</span>, <span class='string'>\"JS\"</span>])",
-            "dev.leverage_ai(<span class='string'>\"code generation\"</span>)"
+            "    <span class='keyword'>def</span> <span class='function'>build_project</span>(<span class='keyword'>self</span>, project_name, tech_stack):",
+            "        <span class='function'>print</span>(f<span class='string'>\"{self.name} is building {project_name} with {', '.join(tech_stack)}.\"</span>)",
+            "        <span class='keyword'>if</span> <span class='keyword'>self</span>.ai_enabled:",
+            "            <span class='function'>print</span>(<span class='string'>\"AI tools are accelerating development!\"</span>)",
+            "        <span class='keyword'>return</span> {<span class='string'>\"project\"</span>: project_name, <span class='string'>\"status\"</span>: <span class='string'>\"completed\"</span>}",
+            "",
+            "    <span class='keyword'>def</span> <span class='function'>leverage_ai</span>(<span class='keyword'>self</span>, task):",
+            "        <span class='function'>print</span>(f<span class='string'>\"{self.name} is leveraging AI for {task} to enhance efficiency.\"</span>)",
+            "        <span class='keyword'>return</span> <span class='keyword'>True</span>",
+            "",
+            "biiieem = <span class='function'>Developer</span>(",
+            "    name=<span class='string'>\"Belteshazzar Marquez\"</span>,",
+            "    handle=<span class='string'>\"@biiieem\"</span>,",
+            "    title=<span class='string'>\"Senior Fullstack Dev\"</span>,",
+            "    location=<span class='string'>\"Philippines\"</span>,",
+            "    tagline=<span class='string'>\"always building\"</span>",
+            ")",
+            "",
+            "biiieem.build_project(<span class='string'>\"Personal Portfolio\"</span>, biiieem.skills[<span class='string'>\"frontend\"</span>] + biiieem.skills[<span class='string'>\"backend\"</span>])",
+            "biiieem.leverage_ai(<span class='string'>\"code generation and refactoring\"</span>)"
         ]
     ];
 
@@ -237,6 +237,226 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 5000); 
         }
     }
-    
     typeWriter();
 });
+
+// --- 5. LED PANEL ANIMATION (ABOUT) ---
+document.addEventListener('DOMContentLoaded', function() {
+    const leds = document.querySelectorAll('.led');
+    if (leds.length === 0) return;
+    
+    let activeIndex = 0;
+    
+    function animateLEDs() {
+        // Turn off all
+        leds.forEach(led => led.classList.remove('active'));
+        
+        // Turn on current
+        leds[activeIndex].classList.add('active');
+        
+        // Advance index
+        activeIndex = (activeIndex + 1) % leds.length;
+        
+        setTimeout(animateLEDs, 200); // Speed: 200ms per step
+    }
+    
+    animateLEDs();
+});
+
+// --- 6. CONNECTED CIRCUIT ANIMATION FOR ABOUT SECTION ---
+function initCircuitAnimation() {
+    const canvas = document.getElementById('circuit-canvas');
+    const container = document.querySelector('.led-panel-container');
+    const aboutSection = document.getElementById('about');
+
+    if (!canvas || !container || !aboutSection) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let wires = [];
+    let packets = [];
+
+    function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.parentNode.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+        createPaths();
+    }
+
+    function createPaths() {
+        wires = [];
+        packets = [];
+        // Check if panel is visible (not on mobile)
+        if (window.getComputedStyle(container).display === 'none') return;
+
+        const aboutRect = aboutSection.getBoundingClientRect();
+        const panelRect = container.getBoundingClientRect();
+        
+        // Start connection from the panel's left border
+        const endX = panelRect.left - aboutRect.left;
+        
+        const ledItems = container.querySelectorAll('.led-item');
+        
+        ledItems.forEach((item, index) => {
+            const itemRect = item.getBoundingClientRect();
+            // Align Y with the LED item center
+            const endY = itemRect.top - aboutRect.top + (itemRect.height / 2);
+            
+            // Generate Path
+            // From random point on far left -> To LED Panel
+            const startX = Math.random() * (width * 0.3); // Start in left 30% of screen
+            const startY = Math.random() * height;
+            
+            const path = [];
+            path.push({x: startX, y: startY});
+            
+            // Simple Manhattan routing (Horizontal -> Vertical -> Horizontal)
+            // Midpoint for turn
+            const midX = (startX + endX) * 0.6; // Turn 60% of the way there
+            
+            path.push({x: midX, y: startY});
+            path.push({x: midX, y: endY});
+            path.push({x: endX, y: endY}); // Connect to panel
+            
+            wires.push({
+                path: path,
+                components: generateComponents(path)
+            });
+        });
+    }
+
+    function generateComponents(path) {
+        const comps = [];
+        // Chance to add a resistor or capacitor on horizontal segments
+        for (let i = 0; i < path.length - 1; i++) {
+            const p1 = path[i];
+            const p2 = path[i+1];
+            const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+            
+            // Only on long horizontal lines
+            if (p1.y === p2.y && dist > 50 && Math.random() < 0.5) {
+                const cx = (p1.x + p2.x) / 2;
+                const cy = p1.y;
+                const type = Math.random() > 0.5 ? 'resistor' : 'capacitor';
+                comps.push({x: cx, y: cy, type: type});
+            }
+        }
+        return comps;
+    }
+
+    function drawComponent(comp) {
+        const style = getComputedStyle(document.documentElement);
+        const strokeColor = style.getPropertyValue('--circuit-stroke').trim();
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        
+        if (comp.type === 'resistor') {
+            // Zigzag
+            ctx.moveTo(comp.x - 15, comp.y);
+            ctx.lineTo(comp.x - 10, comp.y - 5);
+            ctx.lineTo(comp.x - 5, comp.y + 5);
+            ctx.lineTo(comp.x, comp.y - 5);
+            ctx.lineTo(comp.x + 5, comp.y + 5);
+            ctx.lineTo(comp.x + 10, comp.y - 5);
+            ctx.lineTo(comp.x + 15, comp.y);
+        } else if (comp.type === 'capacitor') {
+            // Parallel plates
+            ctx.moveTo(comp.x - 5, comp.y - 8);
+            ctx.lineTo(comp.x - 5, comp.y + 8);
+            ctx.moveTo(comp.x + 5, comp.y - 8);
+            ctx.lineTo(comp.x + 5, comp.y + 8);
+        }
+        ctx.stroke();
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        const style = getComputedStyle(document.documentElement);
+        const colorStroke = style.getPropertyValue('--circuit-stroke').trim();
+        const colorActive = style.getPropertyValue('--circuit-active').trim();
+        
+        // Draw Wires & Components
+        ctx.strokeStyle = colorStroke;
+        ctx.lineWidth = 2;
+        
+        wires.forEach(wire => {
+            // Draw Path
+            ctx.beginPath();
+            ctx.moveTo(wire.path[0].x, wire.path[0].y);
+            for(let i=1; i<wire.path.length; i++) {
+                ctx.lineTo(wire.path[i].x, wire.path[i].y);
+            }
+            ctx.stroke();
+            
+            // Connection Dots
+            ctx.fillStyle = colorStroke;
+            ctx.beginPath(); 
+            ctx.arc(wire.path[0].x, wire.path[0].y, 3, 0, Math.PI*2); // Start
+            ctx.fill();
+            ctx.beginPath(); 
+            ctx.arc(wire.path[wire.path.length-1].x, wire.path[wire.path.length-1].y, 3, 0, Math.PI*2); // End (at panel)
+            ctx.fill();
+            
+            // Draw Components on this wire
+            wire.components.forEach(c => drawComponent(c));
+        });
+        
+        // Spawn Packets
+        if (Math.random() < 0.05 && wires.length > 0) {
+            const wireIndex = Math.floor(Math.random() * wires.length);
+            packets.push({
+                path: wires[wireIndex].path,
+                segment: 0,
+                t: 0,
+                speed: 0.02
+            });
+        }
+        
+        // Animate Packets (Flow towards panel)
+        ctx.fillStyle = colorActive;
+        for (let i = packets.length - 1; i >= 0; i--) {
+            let p = packets[i];
+            p.t += p.speed;
+            
+            if (p.t >= 1) {
+                p.t = 0;
+                p.segment++;
+            }
+            
+            if (p.segment >= p.path.length - 1) {
+                packets.splice(i, 1);
+                continue;
+            }
+
+            const p1 = p.path[p.segment];
+            const p2 = p.path[p.segment+1];
+            const cx = p1.x + (p2.x - p1.x) * p.t;
+            const cy = p1.y + (p2.y - p1.y) * p.t;
+
+            ctx.beginPath();
+            ctx.arc(cx, cy, 4, 0, Math.PI*2);
+            ctx.fill();
+        }
+        
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    createPaths(); // Initial build
+    animate();
+}
+
+// Init All Animations
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initCircuitAnimation();
+    });
+} else {
+    initCircuitAnimation();
+}

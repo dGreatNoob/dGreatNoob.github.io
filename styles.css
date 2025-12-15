@@ -59,6 +59,18 @@
     --syntax-func: #00008b;
     --syntax-tag: #800080;
     --syntax-attr: #A0522D;
+    
+    /* --- Circuit Animation Variables (Light) --- */
+    --circuit-stroke: rgba(0, 0, 0, 0.15);
+    --circuit-active: #2563eb; /* Blue for active signals */
+    --circuit-component: #334155;
+
+    /* --- LED Panel Variables (Light) --- */
+    --led-off: #e5e5e5;
+    --led-on: #10b981; /* Emerald Green */
+    --led-glow: rgba(16, 185, 129, 0.5);
+    --led-text: #666666;
+    --led-panel-border: #e5e5e5;
 }
 
 /* Dark Mode Variables */
@@ -74,7 +86,19 @@
     /* --- Parchment Animation Variables (Dark) --- */
     --parchment-bg: transparent;
     --parchment-ink: #d4d4d4;
-    --code-blend: normal;
+    --code-blend: overlay; /* Blends texture into dark bg */
+    
+    /* --- Circuit Animation Variables (Dark) --- */
+    --circuit-stroke: rgba(255, 255, 255, 0.15);
+    --circuit-active: #38bdf8; /* Cyan for active signals */
+    --circuit-component: #94a3b8;
+
+    /* --- LED Panel Variables (Dark) --- */
+    --led-off: #333333;
+    --led-on: #38bdf8; /* Cyan */
+    --led-glow: rgba(56, 189, 248, 0.6);
+    --led-text: #888888;
+    --led-panel-border: #333333;
 
     /* Syntax Highlighting (Dark) */
     --syntax-keyword: #c586c0;
@@ -520,18 +544,31 @@ ul {
 /* ========================================
    6. Content Sections
    ======================================== */
-/* About */
+
+/* About Component (Updated with Circuit Styles) */
 .about {
     background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden; /* Contains the canvas */
 }
 
 .about-content {
-    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    max-width: 1200px;
+    position: relative;
+    z-index: 2; /* Text sits above canvas */
 }
 
 .about-text {
     display: grid;
     gap: var(--spacing-xl);
+}
+
+.text-lead {
+    margin-bottom: 0;
 }
 
 .about-paragraphs {
@@ -546,56 +583,130 @@ ul {
     max-width: 650px;
 }
 
-/* Skills */
-.skills {
-    background-color: var(--color-bg-secondary);
-}
-
-.skills-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-3xl);
-}
-
-.skill-category {
+/* LED Panel Styles for About Section */
+.led-panel-container {
+    position: relative;
+    width: 100%;
+    /* Border resembling a PCB or Panel edge */
+    border-left: 2px solid var(--led-panel-border);
+    padding-left: 40px;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    justify-content: center;
+    /* Ensure it sits above canvas so we can map positions */
+    z-index: 5;
 }
 
-.skill-category-title {
-    font-family: var(--font-display);
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-normal);
-    color: var(--color-text);
-    letter-spacing: -0.01em;
-    margin-bottom: var(--spacing-sm);
-}
-
-.skill-category-desc {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-    line-height: 1.6;
-    max-width: 300px;
-}
-
-.skill-list {
+.led-strip {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.led-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.led-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--led-text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.led {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--led-off);
+    transition: background-color 0.1s, box-shadow 0.1s;
+}
+
+/* Active Class for Animation */
+.led.active {
+    background-color: var(--led-on);
+    box-shadow: 0 0 10px var(--led-glow), 0 0 20px var(--led-glow);
+}
+
+/* Circuit Animation Background */
+.circuit-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Below content */
+    pointer-events: none;
+    /* Fade Mask to prevent interference with text on left */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 40%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 40%, black 100%);
+}
+
+/* Skills Carousel Styles (New) */
+.skills {
+    background-color: var(--color-bg-secondary);
+    overflow: hidden;
+}
+
+.skills-carousel {
+    position: relative;
+    width: 100%;
+    padding: var(--spacing-xl) 0;
+    /* Fade mask on sides for seamless look */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.skills-track {
+    display: flex;
+    gap: var(--spacing-4xl);
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+/* Pause on hover for accessibility */
+.skills-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.skill-item-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
-}
-
-.skill-item {
-    padding: 4px 0;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s;
-    font-size: var(--font-size-sm);
     color: var(--color-text);
+    min-width: 100px;
+    transition: transform 0.3s ease;
 }
 
-.skill-item:hover {
-    border-color: var(--color-text);
+.skill-item-carousel:hover {
+    transform: translateY(-5px);
+    color: var(--color-text); /* Ensure contrast */
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    fill: currentColor;
+    stroke: currentColor;
+    /* Ensure SVGs inherit color correctly */
+}
+
+.skill-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.05em;
 }
 
 /* Projects */
@@ -798,6 +909,13 @@ ul {
         flex-direction: row;
         gap: var(--spacing-md);
     }
+    
+    /* On mobile/tablet, fade circuit more to ensure readability */
+    .circuit-bg {
+        opacity: 0.3;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -861,9 +979,12 @@ ul {
         gap: var(--spacing-sm);
     }
     
-    .skills-content {
+    .about-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
+    }
+    
+    .led-panel-container {
+        display: none;
     }
     
     .hero-social {
