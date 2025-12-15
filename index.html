@@ -16,7 +16,7 @@
         <div class="nav-container">
             <a href="#home" class="nav-logo">BM</a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Work</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -49,42 +49,58 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <p class="hero-greeting">Hi, I'm</p>
-                <h1 class="hero-name">Belteshazzar<br>Marquez</h1>
-                <p class="hero-handle">@biiieem</p>
-                <p class="hero-subtitle">Computer Engineer</p>
-                <p class="hero-tagline">always building</p>
-                <div class="hero-location">
-                    <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <span>Philippines</span>
+        <!-- 1. The Background Layer (Code Animation) -->
+        <div class="hero-code-column">
+            <div class="parchment-hero-bg">
+                <div class="code-container">
+                    <pre><code id="typewriter-text"></code></pre>
                 </div>
-                <div class="hero-social">
-                    <a href="#" class="social-link" aria-label="GitHub">
-                        <span>GitHub</span>
-                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">
-                        <span>LinkedIn</span>
-                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Email">
-                        <span>Email</span>
-                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
+            </div>
+        </div>
+
+        <!-- 2. The Content Layer -->
+        <div class="hero-container">
+            <div class="hero-grid">
+                <div class="hero-content-column">
+                    <div class="hero-content">
+                        <p class="hero-greeting">Hi, I'm</p>
+                        <h1 class="hero-name">Belteshazzar<br>Marquez</h1>
+                        <p class="hero-handle">@biiieem</p>
+                        <p class="hero-subtitle">Computer Engineer</p>
+                        <p class="hero-tagline">always building</p>
+                        
+                        <div class="hero-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Philippines</span>
+                        </div>
+
+                        <div class="hero-social">
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Email">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,8 +118,7 @@
                     <p class="text-lead">I'm a Computer Engineer passionate about building innovative solutions and turning ideas into reality.</p>
                     <div class="about-paragraphs">
                         <p>With a strong foundation in computer engineering, I'm constantly learning and applying new technologies to create impactful projects. Whether it's developing applications, solving complex problems, or contributing to open-source, I'm always building something new.</p>
-                        <p>I leverage AI-powered development tools as a force multiplier, enabling me to accelerate development cycles, enhance code quality, and solve problems more efficiently. This approach allows me to focus on architecture, user experience, and innovation rather than getting bogged down in repetitive tasks. By strategically integrating AI into my workflow, I deliver higher-quality solutions faster while maintaining the critical thinking and technical expertise that distinguishes great engineers from mere code generators.</p>
-                        <p>I believe in writing clean, maintainable code and creating user experiences that matter. When I'm not coding, you'll find me exploring new technologies, contributing to the developer community, or working on my next project.</p>
+                        <p>I leverage AI-powered development tools as a force multiplier, enabling me to accelerate development cycles, enhance code quality, and solve problems more efficiently. By strategically integrating AI into my workflow, I deliver higher-quality solutions faster while maintaining the critical thinking and technical expertise that distinguishes great engineers from mere code generators.</p>
                     </div>
                 </div>
             </div>
@@ -130,22 +145,22 @@
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-category-title">Backend</h3>
-                    <p class="skill-category-desc">Developing robust server-side applications and APIs</p>
+                    <p class="skill-category-desc">Developing robust server-side applications</p>
                     <div class="skill-list">
                         <span class="skill-item">Node.js</span>
                         <span class="skill-item">Python</span>
                         <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">Database</span>
+                        <span class="skill-item">PostgreSQL</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-category-title">Tools</h3>
-                    <p class="skill-category-desc">Leveraging modern development tools and practices</p>
+                    <p class="skill-category-desc">Leveraging modern development tools</p>
                     <div class="skill-list">
                         <span class="skill-item">Git</span>
                         <span class="skill-item">Docker</span>
                         <span class="skill-item">CI/CD</span>
-                        <span class="skill-item">Cloud</span>
+                        <span class="skill-item">AWS</span>
                     </div>
                 </div>
             </div>
@@ -157,7 +172,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-number">03</span>
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">Work</h2>
             </div>
             <div class="projects-list">
                 <div class="project-item">
@@ -166,12 +181,10 @@
                         <span class="project-category">Web Application</span>
                     </div>
                     <div class="project-details">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">A brief description of the project, what technologies were used, and what problem it solves. This project demonstrates expertise in modern web development practices.</p>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">A full-featured shopping platform with real-time inventory management, payment processing, and an admin dashboard. Built to handle high traffic and complex product variants.</p>
                         <div class="project-tech">
-                            <span>Technology</span>
-                            <span>Framework</span>
-                            <span>Tool</span>
+                            <span>React</span> <span>Node.js</span> <span>MongoDB</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link">View Project →</a>
@@ -181,35 +194,14 @@
                 </div>
                 <div class="project-item">
                     <div class="project-meta">
-                        <span class="project-year">2024</span>
-                        <span class="project-category">Web Application</span>
+                        <span class="project-year">2023</span>
+                        <span class="project-category">System Tool</span>
                     </div>
                     <div class="project-details">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">A brief description of the project, what technologies were used, and what problem it solves. This project demonstrates expertise in modern web development practices.</p>
+                        <h3 class="project-title">Network Analyzer</h3>
+                        <p class="project-description">A lightweight utility for monitoring network traffic and analyzing packet data in real-time. Designed for network administrators to quickly diagnose connectivity issues.</p>
                         <div class="project-tech">
-                            <span>Technology</span>
-                            <span>Framework</span>
-                            <span>Tool</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project →</a>
-                            <a href="#" class="project-link">GitHub →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-meta">
-                        <span class="project-year">2024</span>
-                        <span class="project-category">Web Application</span>
-                    </div>
-                    <div class="project-details">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">A brief description of the project, what technologies were used, and what problem it solves. This project demonstrates expertise in modern web development practices.</p>
-                        <div class="project-tech">
-                            <span>Technology</span>
-                            <span>Framework</span>
-                            <span>Tool</span>
+                            <span>Python</span> <span>Socket.io</span> <span>Docker</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link">View Project →</a>
@@ -227,10 +219,10 @@
             <div class="contact-content">
                 <div class="section-header">
                     <span class="section-number">04</span>
-                    <h2 class="section-title">Get In Touch</h2>
+                    <h2 class="section-title">Contact</h2>
                 </div>
                 <p class="text-lead">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                <a href="mailto:your.email@example.com" class="btn-contact">Say Hello →</a>
+                <a href="mailto:belteshazzar@example.com" class="btn-contact">Say Hello →</a>
             </div>
         </div>
     </section>
