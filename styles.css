@@ -647,67 +647,77 @@ ul {
     mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 40%, black 100%);
 }
 
-/* Skills Carousel Styles (New) */
-.skills {
+/*skills */
+
+    .skills {
     background-color: var(--color-bg-secondary);
     overflow: hidden;
-}
+    }
 
-.skills-carousel {
+    .skills-carousel {
     position: relative;
     width: 100%;
     padding: var(--spacing-xl) 0;
-    /* Fade mask on sides for seamless look */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
 
-.skills-track {
+    /* Edge fade */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+    }
+
+    .skills-track {
     display: flex;
-    gap: var(--spacing-4xl);
     width: max-content;
+    gap: var(--spacing-4xl);
     animation: scroll 30s linear infinite;
-}
+    }
 
-/* Pause on hover for accessibility */
-.skills-track:hover {
+    .skills-track:hover {
     animation-play-state: paused;
-}
+    }
 
-@keyframes scroll {
+    @keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
     to {
         transform: translateX(-50%);
     }
-}
+    }
 
-.skill-item-carousel {
+    .skill-item-carousel {
+    flex: 0 0 auto;
+    min-width: 100px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
+
     color: var(--color-text);
-    min-width: 100px;
     transition: transform 0.3s ease;
-}
+    }
 
-.skill-item-carousel:hover {
+    .skill-item-carousel:hover {
     transform: translateY(-5px);
-    color: var(--color-text); /* Ensure contrast */
+    }
+
+    .skill-item-carousel svg {
+  width: 64px;
+  height: 64px;
 }
 
-.skill-icon {
-    width: 50px;
-    height: 50px;
-    fill: currentColor;
-    stroke: currentColor;
-    /* Ensure SVGs inherit color correctly */
-}
-
-.skill-name {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    letter-spacing: 0.05em;
-}
 
 /* Projects */
 .projects {
