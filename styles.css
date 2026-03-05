@@ -880,6 +880,14 @@ ul {
     color: var(--color-text-lighter);
 }
 
+.footer-content a {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
 /* ========================================
    7. Responsive
    ======================================== */

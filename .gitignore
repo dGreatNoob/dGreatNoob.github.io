@@ -1,0 +1,8 @@
+# Dependencies (site is static; hosted on GitHub Pages)
+node_modules/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
