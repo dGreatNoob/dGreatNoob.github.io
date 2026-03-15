@@ -1,6 +1,9 @@
 # Dependencies (site is static; hosted on GitHub Pages)
 node_modules/
 
+# Local spec / notes (not for public repo)
+spec.md
+
 # OS and editor
 .DS_Store
 Thumbs.db
