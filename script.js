@@ -83,21 +83,31 @@ if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
-// Add active state to navigation links based on scroll position
+// Highlight nav to match scroll position (in-page anchors only; skip Resume PDF link)
 const updateActiveNavLink = () => {
     const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link[href^="#"]');
+
+    const firstSection = sections[0];
+    const scrollY = window.pageYOffset;
+
+    // Above first content section → Home is active
+    if (firstSection && scrollY < firstSection.offsetTop - 200) {
+        navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === '#home');
+        });
+        return;
+    }
+
     let current = '';
-    sections.forEach(section => {
+    sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
+        if (scrollY >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
     });
-    
-    navLinks.forEach(link => {
+
+    navLinks.forEach((link) => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
@@ -106,6 +116,7 @@ const updateActiveNavLink = () => {
 };
 
 window.addEventListener('scroll', updateActiveNavLink);
+document.addEventListener('DOMContentLoaded', updateActiveNavLink);
 
 // --- 4. PARCHMENT TYPEWRITER ANIMATION (HERO) ---
 document.addEventListener('DOMContentLoaded', function() {
@@ -119,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "    <span class='keyword'>\"developer\"</span>: {",
             "        <span class='keyword'>\"name\"</span>: <span class='string'>\"Belteshazzar Marquez\"</span>,",
             "        <span class='keyword'>\"handle\"</span>: <span class='string'>\"@biiieem\"</span>,",
-            "        <span class='keyword'>\"title\"</span>: <span class='string'>\"Computer Engineer\"</span>,",
-            "        <span class='keyword'>\"location\"</span>: <span class='string'>\"Philippines\"</span>,",
+            "        <span class='keyword'>\"title\"</span>: <span class='string'>\"Full-Stack Developer\"</span>,",
+            "        <span class='keyword'>\"location\"</span>: <span class='string'>\"Manila, Philippines\"</span>,",
             "        <span class='keyword'>\"tagline\"</span>: <span class='string'>\"always building\"</span>",
             "    },",
             "    <span class='keyword'>\"skills\"</span>: {",
@@ -204,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "biiieem = <span class='function'>Developer</span>(",
             "    name=<span class='string'>\"Belteshazzar Marquez\"</span>,",
             "    handle=<span class='string'>\"@biiieem\"</span>,",
-            "    title=<span class='string'>\"Senior Fullstack Dev\"</span>,",
+            "    title=<span class='string'>\"Full-Stack Developer\"</span>,",
             "    location=<span class='string'>\"Philippines\"</span>,",
             "    tagline=<span class='string'>\"always building\"</span>",
             ")",

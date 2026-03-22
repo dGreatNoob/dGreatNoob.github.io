@@ -44,9 +44,11 @@
     /* Transitions */
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* Layout */
+    /* Layout — nav height used by JS scroll offset; keep in sync with media queries */
     --container-max-width: 1400px;
     --nav-height: 5rem;
+
+    /* Breakpoint reference (mobile-first new code): base 0 → sm 480 → md 768 → lg 1024 → xl 1280+ */
 
     /* --- Parchment Animation Variables (Light) --- */
     --parchment-bg: transparent;
@@ -137,6 +139,32 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-weight: var(--font-weight-normal);
     transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* Keyboard focus: clear ring for links and controls */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--circuit-active);
+    outline-offset: 3px;
+}
+
+/* Skip link: hidden until focused so keyboard users can bypass the nav */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 10000;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.skip-link:focus {
+    left: var(--spacing-md);
+    top: var(--spacing-md);
 }
 
 a {
@@ -264,6 +292,11 @@ ul {
     width: 100%;
 }
 
+/* Resume in nav: no underline animation (external file) */
+.nav-link--resume::after {
+    display: none;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -274,8 +307,9 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    /* Min ~44px touch target for mobile-first ergonomics */
+    width: 44px;
+    height: 44px;
     background: none;
     border: 1px solid var(--color-border);
     border-radius: 50%;
@@ -283,6 +317,7 @@ ul {
     color: var(--color-text);
     position: relative;
     overflow: hidden;
+    touch-action: manipulation;
 }
 
 .theme-toggle svg {
@@ -313,10 +348,17 @@ ul {
 .nav-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
+    /* Tap target: at least 44×44 for thumb reach on phones */
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    box-sizing: border-box;
     background: none;
     border: none;
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .nav-toggle span {
@@ -485,10 +527,32 @@ ul {
 
 .hero-subtitle {
     font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-text);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     letter-spacing: -0.01em;
+}
+
+.hero-degree {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.02em;
+}
+
+.hero-value-prop {
+    font-size: var(--font-size-lg);
+    line-height: 1.65;
+    color: var(--color-text-light);
+    max-width: 38rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-stack-line {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-lighter);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero-tagline {
@@ -496,7 +560,51 @@ ul {
     font-weight: var(--font-weight-normal);
     color: var(--color-text-light);
     font-style: italic;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
     margin-bottom: var(--spacing-2xl);
+}
+
+/* Primary / secondary CTAs in hero */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+    touch-action: manipulation;
+}
+
+.btn-primary {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border: 1px solid var(--color-text);
+}
+
+.btn-primary:hover {
+    opacity: 0.92;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-text);
+    background-color: var(--color-bg-secondary);
 }
 
 .hero-location {
@@ -583,6 +691,51 @@ ul {
     max-width: 650px;
 }
 
+/* Three pillars: how you work (resume-aligned) */
+.about-pillars {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-xl) 0;
+    display: grid;
+    gap: var(--spacing-md);
+    max-width: 700px;
+}
+
+.about-pillars li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    font-size: var(--font-size-base);
+    line-height: 1.65;
+    color: var(--color-text-light);
+    border-left: 2px solid var(--color-border);
+}
+
+.about-pillars li strong {
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+}
+
+.about-education {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    max-width: 650px;
+}
+
+.about-education-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-normal);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.about-education-text {
+    font-size: var(--font-size-sm);
+    line-height: 1.75;
+    color: var(--color-text-light);
+}
+
 /* LED Panel Styles for About Section */
 .led-panel-container {
     position: relative;
@@ -654,6 +807,43 @@ ul {
     overflow: hidden;
     }
 
+    /* Static keyword rows above the marquee */
+    .skills-static {
+        margin-bottom: var(--spacing-2xl);
+        max-width: 900px;
+    }
+
+    .skills-subheading {
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-semibold);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--color-text-lighter);
+        margin-bottom: var(--spacing-sm);
+        margin-top: var(--spacing-xl);
+    }
+
+    .skills-subheading:first-child {
+        margin-top: 0;
+    }
+
+    .skill-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .skill-chip {
+        display: inline-block;
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+        background-color: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        letter-spacing: 0.02em;
+    }
+
     .skills-carousel {
     position: relative;
     width: 100%;
@@ -718,6 +908,26 @@ ul {
   height: 64px;
 }
 
+
+/* Section intro line under numbered heading */
+.section-intro {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+    margin: calc(-1 * var(--spacing-xl)) 0 var(--spacing-2xl) 0;
+    max-width: 40rem;
+    line-height: 1.6;
+}
+
+/* Experience: employment — distinct surface from portfolio projects */
+.experience {
+    background-color: var(--color-bg-secondary);
+}
+
+.experience-item {
+    border-left: 3px solid var(--circuit-active);
+    padding-left: var(--spacing-lg);
+    margin-left: calc(-1 * var(--spacing-xs));
+}
 
 /* Projects */
 .projects {
@@ -824,6 +1034,19 @@ ul {
     opacity: 0.7;
 }
 
+/* Placeholder when no public link */
+.project-link--na {
+    cursor: default;
+    border-bottom: none;
+    color: var(--color-text-lighter);
+    font-style: italic;
+}
+
+.project-link--na:hover {
+    opacity: 1;
+    border-bottom: none;
+}
+
 /* Contact */
 .contact {
     background-color: var(--color-bg-secondary);
@@ -844,6 +1067,14 @@ ul {
     margin: 0 auto var(--spacing-2xl);
 }
 
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+}
+
 .btn-contact {
     display: inline-block;
     font-size: var(--font-size-lg);
@@ -856,6 +1087,15 @@ ul {
 }
 
 .btn-contact:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+}
+
+.btn-contact--secondary {
+    background: transparent;
+}
+
+.btn-contact--secondary:hover {
     background: var(--color-text);
     color: var(--color-bg);
 }

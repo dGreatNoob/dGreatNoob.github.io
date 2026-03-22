@@ -4,24 +4,29 @@
     <meta name="facebook-domain-verification" content="o1q3o632upujs4lt1h8c6odgg7f14u" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Belteshazzar Marquez - Computer Engineer | Portfolio">
-    <title>Belteshazzar Marquez | Computer Engineer</title>
+    <meta name="description" content="Belteshazzar Marquez — Full-Stack Developer, Manila. Systems, integrations, and end-to-end web delivery.">
+    <title>Belteshazzar Marquez | Full-Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Lets keyboard users jump past the nav to main content -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="nav" id="navbar">
+    <nav class="nav" id="navbar" aria-label="Primary">
         <div class="nav-container">
             <a href="#home" class="nav-logo">BM</a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="/resume.pdf" class="nav-link nav-link--resume">Resume</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -49,6 +54,7 @@
         </div>
     </nav>
 
+    <main id="main">
     <!-- Hero Section -->
     <section id="home" class="hero">
         <!-- 1. The Background Layer (Code Animation) -->
@@ -68,15 +74,25 @@
                         <p class="hero-greeting">Hi, I'm</p>
                         <h1 class="hero-name">Belteshazzar<br>Marquez</h1>
                         <p class="hero-handle">@biiieem</p>
-                        <p class="hero-subtitle">Computer Engineer</p>
+                        <!-- Primary role for recruiters; degree sits underneath -->
+                        <p class="hero-subtitle">Full-Stack Developer</p>
+                        <p class="hero-degree">Computer Engineer (B.S.)</p>
+                        <p class="hero-value-prop">I build systems that solve real business problems—automating workflows, integrating services, and shipping end-to-end from design to production.</p>
+                        <p class="hero-stack-line">Laravel · React · Vue · Node · PostgreSQL · Docker · AWS · WordPress</p>
                         <p class="hero-tagline">always building</p>
-                        
+
                         <div class="hero-location">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            <span>Philippines</span>
+                            <span>Manila, Philippines</span>
+                        </div>
+
+                        <!-- Primary CTAs: resume artifact + contact -->
+                        <div class="hero-actions">
+                            <a href="/resume.pdf" class="btn btn-primary" download>Download resume</a>
+                            <a href="#contact" class="btn btn-secondary">Contact</a>
                         </div>
 
                         <div class="hero-social">
@@ -162,10 +178,20 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="text-lead">Computer Engineer from the University of Mindanao (2024), currently building full-stack web applications at a Manila-based startup.</p>
+                    <!-- Three pillars: scannable proof of how you work (see DESIGN.md) -->
+                    <ul class="about-pillars">
+                        <li><strong>End-to-end delivery</strong> — Requirements through system design, implementation, testing, and deployment; AI-accelerated where it helps, engineering fundamentals first.</li>
+                        <li><strong>Automation &amp; integrations</strong> — Workflows, APIs, webhooks, and event-driven connections across messaging, payments, and internal ops.</li>
+                        <li><strong>Solid foundations</strong> — RBAC, validation, structured workflows, and maintainable backend logic for production systems.</li>
+                    </ul>
+                    <p class="text-lead">BS Computer Engineering (University of Mindanao, 2024). Full-stack at CliqueHA in Manila; freelance client delivery; side projects in AI SaaS and analytics.</p>
                     <div class="about-paragraphs">
-                        <p>At CliqueHA Information Services, I work across the full stack — designing systems, writing code, setting up infrastructure, and shipping to production. I've built internal ERP tools, established CI/CD pipelines for the dev team, and designed and maintained databases from client requirements all the way to prod. I also develop e-commerce sites for clients on the side.</p>
-                        <p>Outside of work, I'm building my own projects — a dental clinic AI booking SaaS and a micro-analytics platform. I integrate AI into my development workflow to move faster without sacrificing the engineering fundamentals. Placed 3rd in the ICpEP XI Regional Python Programming Challenge. For my undergrad thesis, I lead-developed an IoT flood hotspot monitoring system with real-time GIS mapping and custom hardware.</p>
+                        <p>At CliqueHA Information Services OPC, I own the full lifecycle—internal ERP-style systems, client e-commerce, CI/CD, databases from schema to migrations, and integrations with third-party services. I apply MCP and AI tooling where they speed up delivery without skipping design or review.</p>
+                        <p>Freelance (Jan–Aug 2025): Squarespace landing pages and WordPress e-commerce focused on conversions. Side projects include a dental clinic AI booking SaaS and Micro Analytics. 3rd place, ICpEP XI Regional Python Challenge. Thesis: IoT flood hotspot monitoring with real-time GIS and custom hardware.</p>
+                    </div>
+                    <div class="about-education">
+                        <h3 class="about-education-title">Education</h3>
+                        <p class="about-education-text"><strong>BS Computer Engineering</strong>, University of Mindanao, 2019–2024. Coursework and projects in embedded systems, IoT, microcontrollers, and real-time applications—see the thesis project below.</p>
                     </div>
                 </div>
                 
@@ -192,6 +218,30 @@
         <div class="section-header">
         <span class="section-number">02</span>
         <h2 class="section-title">Skills</h2>
+        </div>
+
+        <!-- Static chips for quick scan + keywords; marquee below for visual energy -->
+        <div class="skills-static">
+            <h3 class="skills-subheading">Systems &amp; practices</h3>
+            <div class="skill-chips" aria-label="Systems and practices">
+                <span class="skill-chip">System design</span>
+                <span class="skill-chip">Architecture planning</span>
+                <span class="skill-chip">MCP server integration</span>
+                <span class="skill-chip">Documentation &amp; logic structuring</span>
+                <span class="skill-chip">End-to-end delivery</span>
+            </div>
+            <h3 class="skills-subheading">Stack &amp; tools</h3>
+            <div class="skill-chips" aria-label="Technologies">
+                <span class="skill-chip">Laravel</span>
+                <span class="skill-chip">React / Vue</span>
+                <span class="skill-chip">Node.js</span>
+                <span class="skill-chip">TypeScript</span>
+                <span class="skill-chip">PostgreSQL</span>
+                <span class="skill-chip">Docker</span>
+                <span class="skill-chip">AWS</span>
+                <span class="skill-chip">WordPress</span>
+                <span class="skill-chip">Python</span>
+            </div>
         </div>
 
         <div class="skills-carousel">
@@ -316,29 +366,27 @@
 
 
 
-        <!-- Experience Section -->
-    <section id="experience" class="section projects">
+        <!-- Experience: employment & client work (distinct from Projects below) -->
+    <section id="experience" class="section experience" aria-labelledby="experience-heading">
     <div class="container">
         <div class="section-header">
         <span class="section-number">03</span>
-        <h2 class="section-title">Experience</h2>
+        <h2 id="experience-heading" class="section-title">Experience</h2>
         </div>
+        <p class="section-intro">Employment and client delivery — separate from selected side projects.</p>
 
-        <div class="projects-list">
+        <div class="projects-list experience-list">
 
-        <!-- CliqueHA Work -->
-        <div class="project-item">
+        <!-- CliqueHA -->
+        <article class="project-item experience-item">
             <div class="project-meta">
-            <span class="project-year">June 2025 – Present</span>
-            <span class="project-category">Startup · Web Development</span>
+            <span class="project-year">March 2025 – Present</span>
+            <span class="project-category">Startup · Full-stack</span>
             </div>
             <div class="project-details">
-            <h3 class="project-title">Web Applications Developer — CliqueHA Information Services</h3>
+            <h3 class="project-title">Full-Stack Web Developer — CliqueHA Information Services OPC</h3>
             <p class="project-description">
-                Full-stack developer at a Manila-based startup. Build and maintain internal ERP systems
-                and client e-commerce platforms. Set up and own the team's CI/CD pipelines. Design and
-                maintain the database from schema to migrations. Integrate AI into development workflows.
-                Wear multiple hats: system design, UI/UX, dev, DevOps.
+                Full lifecycle from requirements to deployment: internal ERP-style systems, client e-commerce, RBAC and validation, automation and event-driven workflows, APIs and webhooks (messaging, payments). CI/CD, databases from schema to migrations, MCP and AI-assisted development where appropriate.
             </p>
             <div class="project-tech">
                 <span>Laravel</span>
@@ -348,20 +396,18 @@
                 <span>WordPress</span>
             </div>
             </div>
-        </div>
+        </article>
 
-        <!-- Freelance Work -->
-        <div class="project-item">
+        <!-- Freelance -->
+        <article class="project-item experience-item">
             <div class="project-meta">
-            <span class="project-year">2023 – Present</span>
+            <span class="project-year">January 2025 – August 2025</span>
             <span class="project-category">Freelance</span>
             </div>
             <div class="project-details">
             <h3 class="project-title">Freelance Web Developer</h3>
             <p class="project-description">
-                Designed and deployed modern business websites and web applications for clients —
-                from landing pages to analytics dashboards. Built with clean UI and practical
-                business use cases in mind. Also delivered Squarespace sites for non-technical clients.
+                Responsive Squarespace landing pages and WordPress e-commerce for business clients—conversion-focused delivery alongside custom builds (Next.js, React, Tailwind, Vercel) when the project needs it.
             </p>
             <div class="project-tech">
                 <span>Next.js</span>
@@ -372,20 +418,21 @@
                 <span>WordPress</span>
             </div>
             </div>
-        </div>
+        </article>
 
         </div>
     </div>
     </section>
 
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
+    <!-- Projects: products & thesis -->
+    <section id="projects" class="section projects" aria-labelledby="projects-heading">
     <div class="container">
         <div class="section-header">
         <span class="section-number">04</span>
-        <h2 class="section-title">Projects</h2>
+        <h2 id="projects-heading" class="section-title">Projects</h2>
         </div>
+        <p class="section-intro">Selected work — products, experiments, and capstone engineering.</p>
 
         <div class="projects-list">
 
@@ -396,7 +443,7 @@
             <span class="project-category">Side Project · AI SaaS</span>
             </div>
             <div class="project-details">
-            <h3 class="project-title">Dental Saas — AI Booking Platform</h3>
+            <h3 class="project-title">Dental SaaS — AI Booking Platform</h3>
             <p class="project-description">
                 Building an AI-powered booking and management system for dental clinics from the ground up.
                 Handles appointment scheduling, patient management, and automated follow-ups via
@@ -408,6 +455,9 @@
                 <span>n8n</span>
                 <span>PostgreSQL</span>
                 <span>Docker</span>
+            </div>
+            <div class="project-links">
+                <span class="project-link project-link--na">Repo private · in development</span>
             </div>
             </div>
         </div>
@@ -430,9 +480,7 @@
                 <span>Vercel</span>
             </div>
             <div class="project-links">
-                <a href="https://micro-analytics.vercel.app/" target="_blank" class="project-link">
-                Live →
-                </a>
+                <a href="https://micro-analytics.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live →</a>
             </div>
             </div>
         </div>
@@ -458,6 +506,9 @@
                 <span>Real-time Web</span>
                 <span>Hardware Design</span>
             </div>
+            <div class="project-links">
+                <span class="project-link project-link--na">Thesis repository not public</span>
+            </div>
             </div>
         </div>
 
@@ -475,10 +526,15 @@
                     <h2 class="section-title">Contact</h2>
                 </div>
                 <p class="text-lead">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                <a href="mailto:mbelteshazzar.bm.1247@gmail.com" class="btn-contact">Say Hello →</a>
+                <div class="contact-actions">
+                    <a href="mailto:mbelteshazzar.bm.1247@gmail.com" class="btn-contact">Say hello →</a>
+                    <a href="/resume.pdf" class="btn-contact btn-contact--secondary" download>Download resume</a>
+                </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">

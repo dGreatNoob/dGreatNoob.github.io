@@ -54,7 +54,13 @@ The portfolio uses a consistent design system with:
 
 If you want to use a build process or other automation, you can set up GitHub Actions workflows.
 
+## 📄 Resume download
+
+The site links to **`/resume.pdf`** in the hero, nav, and contact. Add your PDF at the **repository root** as `resume.pdf` and commit it so GitHub Pages serves it. Until the file exists, those links return 404 locally and on the live site.
+
 ## 📝 Customization
+
+See **`DESIGN.md`** for narrative, structure, and phased refactors.
 
 ### Update Personal Information
 
