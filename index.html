@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Lets keyboard users jump past the nav to main content -->
@@ -20,15 +20,15 @@
         <div class="nav-container">
             <a href="#home" class="nav-logo">BM</a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#process" class="nav-link">Process</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="/resume.pdf" class="nav-link nav-link--resume">Resume</a></li>
             </ul>
             <div class="nav-actions">
+                <a href="#contact" class="nav-cta">Hire Me</a>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                     <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -71,16 +71,11 @@
             <div class="hero-grid">
                 <div class="hero-content-column">
                     <div class="hero-content">
-                        <p class="hero-greeting">Hi, I'm</p>
                         <h1 class="hero-name">Belteshazzar<br>Marquez</h1>
-                        <p class="hero-handle">@biiieem</p>
                         <!-- Primary role for recruiters; degree sits underneath -->
                         <p class="hero-subtitle">Full-Stack Developer</p>
                         <p class="hero-degree">Computer Engineer (B.S.)</p>
-                        <p class="hero-value-prop">I build systems that solve real business problems—automating workflows, integrating services, and shipping end-to-end from design to production.</p>
-                        <p class="hero-stack-line">Laravel · React · Vue · Node · PostgreSQL · Docker · AWS · WordPress</p>
-                        <p class="hero-tagline">always building</p>
-
+                        <p class="hero-value-prop">I build production-ready systems end-to-end — full-stack delivery, workflow automations, and integrations that hold up when the business depends on them.</p>
                         <div class="hero-location">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -89,10 +84,32 @@
                             <span>Manila, Philippines</span>
                         </div>
 
+                        <!-- Availability signal -->
+                        <div class="hero-avail">
+                            <span class="avail-dot" aria-hidden="true"></span>
+                            <span>Available for new projects</span>
+                        </div>
+
                         <!-- Primary CTAs: resume artifact + contact -->
                         <div class="hero-actions">
                             <a href="/resume.pdf" class="btn btn-primary" download>Download resume</a>
                             <a href="#contact" class="btn btn-secondary">Contact</a>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="hero-stats" role="list">
+                            <div class="hero-stat" role="listitem">
+                                <span class="hero-stat-num">2024</span>
+                                <span class="hero-stat-label">CompE Graduate</span>
+                            </div>
+                            <div class="hero-stat" role="listitem">
+                                <span class="hero-stat-num">10+</span>
+                                <span class="hero-stat-label">Projects shipped</span>
+                            </div>
+                            <div class="hero-stat" role="listitem">
+                                <span class="hero-stat-num">3rd</span>
+                                <span class="hero-stat-label">PH Regional Python Challenge</span>
+                            </div>
                         </div>
 
                         <div class="hero-social">
@@ -178,20 +195,20 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <!-- Three pillars: scannable proof of how you work (see DESIGN.md) -->
+                    <!-- Three pillars: scannable proof of how you work -->
                     <ul class="about-pillars">
-                        <li><strong>End-to-end delivery</strong> — Requirements through system design, implementation, testing, and deployment; AI-accelerated where it helps, engineering fundamentals first.</li>
-                        <li><strong>Automation &amp; integrations</strong> — Workflows, APIs, webhooks, and event-driven connections across messaging, payments, and internal ops.</li>
-                        <li><strong>Solid foundations</strong> — RBAC, validation, structured workflows, and maintainable backend logic for production systems.</li>
+                        <li><strong>End-to-end delivery</strong> — From requirements and system design through implementation, testing, and deployment. Engineering fundamentals first; AI tooling where it genuinely speeds things up.</li>
+                        <li><strong>Automation &amp; integrations</strong> — Event-driven workflows, APIs, and webhooks across messaging, payments, and internal ops — the connective tissue most systems need but few get right.</li>
+                        <li><strong>Solid foundations</strong> — Access control, input validation, structured data flow, and backend logic written to survive production — not just the demo.</li>
                     </ul>
-                    <p class="text-lead">BS Computer Engineering (University of Mindanao, 2024). Full-stack at CliqueHA in Manila; freelance client delivery; side projects in AI SaaS and analytics.</p>
+                    <p class="text-lead">Computer Engineering graduate (University of Mindanao, 2024), currently working full-stack at CliqueHA in Manila — building internal tools, client systems, and everything in between.</p>
                     <div class="about-paragraphs">
-                        <p>At CliqueHA Information Services OPC, I own the full lifecycle—internal ERP-style systems, client e-commerce, CI/CD, databases from schema to migrations, and integrations with third-party services. I apply MCP and AI tooling where they speed up delivery without skipping design or review.</p>
-                        <p>Freelance (Jan–Aug 2025): Squarespace landing pages and WordPress e-commerce focused on conversions. Side projects include a dental clinic AI booking SaaS and Micro Analytics. 3rd place, ICpEP XI Regional Python Challenge. Thesis: IoT flood hotspot monitoring with real-time GIS and custom hardware.</p>
+                        <p>At CliqueHA, I own the full delivery lifecycle — designing and building internal ERP-style systems, client e-commerce, and the automations that connect them. Database design, CI/CD, third-party integrations (payments, messaging), and AI-assisted development where it genuinely helps.</p>
+                        <p>Before CliqueHA, I took freelance projects building conversion-focused landing pages and WordPress e-commerce stores. Outside work, I'm building a dental clinic AI booking SaaS and Micro Analytics — a lightweight, privacy-first analytics tool. Other highlights: 3rd place at the ICpEP XI Regional Python Challenge and a thesis on IoT flood monitoring with custom hardware and real-time GIS.</p>
                     </div>
                     <div class="about-education">
                         <h3 class="about-education-title">Education</h3>
-                        <p class="about-education-text"><strong>BS Computer Engineering</strong>, University of Mindanao, 2019–2024. Coursework and projects in embedded systems, IoT, microcontrollers, and real-time applications—see the thesis project below.</p>
+                        <p class="about-education-text"><strong>BS Computer Engineering</strong>, University of Mindanao, 2019–2024. Coursework in embedded systems, IoT, microcontrollers, and real-time applications — see the thesis project below.</p>
                     </div>
                 </div>
                 
@@ -220,14 +237,16 @@
         <h2 class="section-title">Skills</h2>
         </div>
 
+        <p class="section-intro">The stack I reach for daily and the practices I apply — in production, not just side projects.</p>
+
         <!-- Static chips for quick scan + keywords; marquee below for visual energy -->
         <div class="skills-static">
             <h3 class="skills-subheading">Systems &amp; practices</h3>
             <div class="skill-chips" aria-label="Systems and practices">
                 <span class="skill-chip">System design</span>
                 <span class="skill-chip">Architecture planning</span>
-                <span class="skill-chip">MCP server integration</span>
-                <span class="skill-chip">Documentation &amp; logic structuring</span>
+                <span class="skill-chip">AI &amp; LLM integration</span>
+                <span class="skill-chip">API &amp; webhook design</span>
                 <span class="skill-chip">End-to-end delivery</span>
             </div>
             <h3 class="skills-subheading">Stack &amp; tools</h3>
@@ -373,7 +392,7 @@
         <span class="section-number">03</span>
         <h2 id="experience-heading" class="section-title">Experience</h2>
         </div>
-        <p class="section-intro">Employment and client delivery — separate from selected side projects.</p>
+        <p class="section-intro">Where I've worked and what I've shipped — professional engagements, not personal projects.</p>
 
         <div class="projects-list experience-list">
 
@@ -386,7 +405,7 @@
             <div class="project-details">
             <h3 class="project-title">Full-Stack Web Developer — CliqueHA Information Services OPC</h3>
             <p class="project-description">
-                Full lifecycle from requirements to deployment: internal ERP-style systems, client e-commerce, RBAC and validation, automation and event-driven workflows, APIs and webhooks (messaging, payments). CI/CD, databases from schema to migrations, MCP and AI-assisted development where appropriate.
+                Building and maintaining full-stack systems from the ground up — internal ERP-style tools, client e-commerce, and event-driven automations. Own the complete delivery: database schema design, API and webhook integrations (payments, messaging), CI/CD pipelines, and AI-assisted development where it genuinely speeds things up.
             </p>
             <div class="project-tech">
                 <span>Laravel</span>
@@ -432,7 +451,7 @@
         <span class="section-number">04</span>
         <h2 id="projects-heading" class="section-title">Projects</h2>
         </div>
-        <p class="section-intro">Selected work — products, experiments, and capstone engineering.</p>
+        <p class="section-intro">Products I'm building, shipped experiments, and the thesis that started it all.</p>
 
         <div class="projects-list">
 
@@ -445,9 +464,7 @@
             <div class="project-details">
             <h3 class="project-title">Dental SaaS — AI Booking Platform</h3>
             <p class="project-description">
-                Building an AI-powered booking and management system for dental clinics from the ground up.
-                Handles appointment scheduling, patient management, and automated follow-ups via
-                conversational AI. Self-hosted on a VPS with a full CI/CD pipeline.
+                An AI-powered booking and management platform for dental clinics — appointment scheduling, patient management, and automated follow-ups via conversational AI. Fully self-hosted with a CI/CD pipeline; built with Laravel, Next.js, n8n, and PostgreSQL.
             </p>
             <div class="project-tech">
                 <span>Laravel 12</span>
@@ -471,8 +488,7 @@
             <div class="project-details">
             <h3 class="project-title">Micro Analytics</h3>
             <p class="project-description">
-                Lightweight, privacy-friendly analytics dashboard for small websites and projects.
-                Tracks page views and basic traffic data without the bloat of full analytics platforms.
+                A lightweight, privacy-first analytics tool for small websites. No cookies, no tracking bloat — just the page view data you actually need, without the complexity of GA4 or Plausible.
             </p>
             <div class="project-tech">
                 <span>Next.js</span>
@@ -494,10 +510,7 @@
             <div class="project-details">
             <h3 class="project-title">IoT Flood Hotspot Monitoring System</h3>
             <p class="project-description">
-                Lead-developed a real-time, web-based flood mapping system using GIS technology.
-                Designed and built a custom hardware receiver pole from scratch to collect sensor data,
-                which was processed and rendered as live flood hotspots on an interactive web interface.
-                Capstone project, University of Mindanao 2024.
+                Led development of a real-time, web-based flood mapping system using GIS. Designed and built custom hardware receiver poles from scratch — sensor data was processed server-side and rendered as live flood hotspots on an interactive map. Capstone engineering project, University of Mindanao 2024.
             </p>
             <div class="project-tech">
                 <span>IoT</span>
@@ -517,18 +530,113 @@
     </section>
 
 
+    <!-- Process Section -->
+    <section id="process" class="section process" aria-labelledby="process-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 id="process-heading" class="section-title">Process</h2>
+            </div>
+            <p class="section-intro">How I approach every engagement — from first conversation to live deployment.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-num" aria-hidden="true">01</span>
+                    <h3 class="process-card-title">Discovery</h3>
+                    <p class="process-card-desc">I ask the questions that surface hidden requirements and constraints before a line of code is written. Clear goals up front prevent expensive pivots later.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-num" aria-hidden="true">02</span>
+                    <h3 class="process-card-title">Plan &amp; Scope</h3>
+                    <p class="process-card-desc">A written spec, milestone breakdown, and tech approach — agreed on before building starts. No surprises on timeline or deliverables.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-num" aria-hidden="true">03</span>
+                    <h3 class="process-card-title">Build &amp; Iterate</h3>
+                    <p class="process-card-desc">Regular updates, working demos, and fast feedback loops. You're in the loop at every stage — nothing ships without your sign-off.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-num" aria-hidden="true">04</span>
+                    <h3 class="process-card-title">Ship &amp; Support</h3>
+                    <p class="process-card-desc">Thorough QA, smooth deployment, and documentation handoff. I don't disappear after launch — I make sure everything holds up in production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner" role="complementary" aria-label="Call to action">
+        <div class="container cta-banner-inner">
+            <h2 class="cta-banner-heading">Got a project in mind?</h2>
+            <p class="cta-banner-sub">Open to freelance projects, contracts, and full-time roles. Tell me what you're building.</p>
+            <a href="#contact" class="btn-cta-banner">Start a conversation →</a>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
-            <div class="contact-content">
-                <div class="section-header">
-                    <span class="section-number">05</span>
-                    <h2 class="section-title">Contact</h2>
-                </div>
-                <p class="text-lead">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-                <div class="contact-actions">
-                    <a href="mailto:mbelteshazzar.bm.1247@gmail.com" class="btn-contact">Say hello →</a>
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Contact</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="contact-info-heading">Let's build something together</h3>
+                    <p class="contact-info-sub">Drop me a message and I'll get back to you within 24 hours. No sales pitch — just an honest conversation about your project.</p>
+                    <div class="contact-links">
+                        <a href="mailto:mbelteshazzar.bm.1247@gmail.com" class="contact-link">
+                            <span class="contact-link-icon" aria-hidden="true">✉</span>
+                            mbelteshazzar.bm.1247@gmail.com
+                        </a>
+                        <a href="https://github.com/dGreatNoob" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-link-icon" aria-hidden="true">GH</span>
+                            github.com/dGreatNoob
+                        </a>
+                        <a href="https://www.linkedin.com/in/belteshazzar-marquez-733771340" class="contact-link" target="_blank" rel="noopener noreferrer">
+                            <span class="contact-link-icon" aria-hidden="true">in</span>
+                            linkedin.com/in/belteshazzar-marquez
+                        </a>
+                    </div>
+                    <div class="contact-avail">
+                        <span class="avail-dot" aria-hidden="true"></span>
+                        Open to new projects
+                    </div>
                     <a href="/resume.pdf" class="btn-contact btn-contact--secondary" download>Download resume</a>
+                </div>
+                <div class="contact-form-wrap">
+                    <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fname">First name</label>
+                                <input type="text" id="fname" name="fname" placeholder="Jane" autocomplete="given-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lname">Last name</label>
+                                <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cemail">Email address</label>
+                            <input type="email" id="cemail" name="email" placeholder="jane@company.com" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Project budget</label>
+                            <select id="budget" name="budget">
+                                <option value="" disabled selected>Select a range…</option>
+                                <option>Under ₱50,000</option>
+                                <option>₱50,000 – ₱150,000</option>
+                                <option>₱150,000 – ₱500,000</option>
+                                <option>₱500,000+</option>
+                                <option>Open to discuss</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell me about your project</label>
+                            <textarea id="message" name="message" placeholder="I need help building…" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn">Send message</button>
+                        <p class="form-note">I'll reply within 24 hours. No spam, ever.</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -540,9 +648,22 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; <span id="year"></span> Belteshazzar Marquez</p>
-                <p class="footer-tagline">always building</p>
-                <p><a href="/privacy-policy/">Privacy Policy</a></p>
+                <div class="footer-brand">
+                    <span class="footer-logo">BM</span>
+                    <p class="footer-tagline">always building</p>
+                </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="#about" class="footer-nav-link">About</a>
+                    <a href="#skills" class="footer-nav-link">Skills</a>
+                    <a href="#experience" class="footer-nav-link">Experience</a>
+                    <a href="#projects" class="footer-nav-link">Projects</a>
+                    <a href="#process" class="footer-nav-link">Process</a>
+                    <a href="#contact" class="footer-nav-link">Contact</a>
+                </nav>
+                <div class="footer-meta">
+                    <p>&copy; <span id="year"></span> Belteshazzar Marquez</p>
+                    <a href="/privacy-policy/" class="footer-meta-link">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </footer>
